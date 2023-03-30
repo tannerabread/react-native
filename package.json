@@ -10,8 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@aws-amplify/pushnotification": "^5.0.22",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-native-community/netinfo": "^9.3.7",
+    "@react-native-community/push-notification-ios": "^1.10.1",
     "aws-amplify": "^5.0.22",
     "react": "18.2.0",
     "react-native": "0.71.5"
