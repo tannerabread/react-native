@@ -21,4 +21,14 @@ async function signIn() {
 }
 signIn();
 
+async function getUser() {
+  try {
+    const user = await Auth.currentAuthenticatedUser();
+    console.log({user});
+  } catch (error) {
+    console.log('error getting user', error);
+  }
+}
+getUser();
+
 AppRegistry.registerComponent(appName, () => App);
