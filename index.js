@@ -12,6 +12,8 @@ import config from './aws-exports';
 Amplify.configure(config);
 Amplify.Logger.LOG_LEVEL = 'DEBUG';
 
+// const pubsub = new PubSub();
+
 Amplify.addPluggable(
   new AWSIoTProvider({
     aws_pubsub_region: 'us-east-1',

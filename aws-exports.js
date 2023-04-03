@@ -76,6 +76,22 @@ const awsmobile = {
             "region": "us-east-1"
         }
     ],
+    "aws_appsync_graphqlEndpoint": "https://it3kjbawffglrmi4fgk6k56z6y.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_region": "us-east-1",
+    "aws_appsync_authenticationType": "API_KEY",
+    "aws_appsync_apiKey": "da2-fwnlszj4xvge5jjdh5inlrcdtq",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "apifa5aa3a9",
+            "endpoint": "https://q707rst77e.execute-api.us-east-1.amazonaws.com/dev",
+            "region": "us-east-1"
+        },
+        {
+            "name": "apiauth",
+            "endpoint": "https://92r9v1shpc.execute-api.us-east-1.amazonaws.com/dev",
+            "region": "us-east-1"
+        }
+    ],
     "predictions": {
         "convert": {
             "translateText": {

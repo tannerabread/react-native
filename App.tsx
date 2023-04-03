@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -24,6 +25,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import {PubSub} from 'aws-amplify';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -62,6 +65,17 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  async function subscribe() {
+    PubSub.subscribe('myTopic').subscribe({
+      next: data => console.log('Message received', data),
+      error: error => console.error(error),
+      complete: () => console.log('Done'),
+    });
+  }
+  async function publish() {
+    await PubSub.publish('myTopic', {msg: 'Hello to all subscribers!'});
+  }
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -77,19 +91,9 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+            <Button onPress={subscribe} title="Subscribe" />
+            <Button onPress={publish} title="Publish" />
           </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
     </SafeAreaView>
