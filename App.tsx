@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -24,6 +25,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import {Auth} from 'aws-amplify';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -62,6 +65,32 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  async function signIn() {
+    try {
+      const user = await Auth.signIn('testuser20', 'testtest');
+      console.log({user});
+    } catch (error) {
+      console.log('error signing in', error);
+    }
+  }
+
+  async function getUser() {
+    try {
+      const user = await Auth.currentAuthenticatedUser();
+      console.log({user});
+    } catch (error) {
+      console.log('error getting user', error);
+    }
+  }
+
+  async function signOut() {
+    try {
+      await Auth.signOut().then(() => console.log('signed out'));
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  }
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -77,19 +106,10 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+            <Button title="Sign In" onPress={signIn} />
+            <Button title="Get User" onPress={getUser} />
+            <Button title="Sign Out" onPress={signOut} />
           </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
     </SafeAreaView>
