@@ -91,6 +91,11 @@
     universal-cookie "^4.0.4"
     zen-observable-ts "0.8.19"
 
+"@aws-amplify/datastore-storage-adapter@^2.0.23":
+  version "2.0.23"
+  resolved "https://registry.npmjs.org/@aws-amplify/datastore-storage-adapter/-/datastore-storage-adapter-2.0.23.tgz#4f1defdbfc3ea3270266f62a741baaf802ed4a1f"
+  integrity sha512-ISNBs8cqyQvAB5BWW7CCDVIbynWBum/KulYj9hbge/rRLrkzLQBdr2WAEkzShyEvZtSNzOaKrBOQ+R0sZaa32A==
+
 "@aws-amplify/datastore@4.1.5":
   version "4.1.5"
   resolved "https://registry.npmjs.org/@aws-amplify/datastore/-/datastore-4.1.5.tgz#86964cfd172f7795a41a8bd431d26733f22a92a0"
@@ -8079,6 +8084,11 @@ react-native-gradle-plugin@^0.71.17:
   version "0.71.17"
   resolved "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.17.tgz#cf780a27270f0a32dca8184eff91555d7627dd00"
   integrity sha512-OXXYgpISEqERwjSlaCiaQY6cTY5CH6j73gdkWpK0hedxtiWMWgH+i5TOi4hIGYitm9kQBeyDu+wim9fA8ROFJA==
+
+react-native-sqlite-storage@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.npmjs.org/react-native-sqlite-storage/-/react-native-sqlite-storage-6.0.1.tgz#ce6a6b852f07abbea68658d5363818c8bef45dfb"
+  integrity sha512-1tDFjrint6X6qSYKf3gDyz+XB+X79jfiL6xTugKHPRtF0WvqMtVgdLuNqZunIXjNEvNtNVEbXaeZ6MsguFu00A==
 
 react-native@0.71.5:
   version "0.71.5"

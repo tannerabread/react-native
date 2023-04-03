@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -24,6 +25,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import {DataStore} from 'aws-amplify';
+import {Todo} from './models';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -62,6 +66,15 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  async function readDatastore() {
+    try {
+      const todos = await DataStore.query(Todo);
+      console.log('todos: ', JSON.stringify(todos, null, 2));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -77,19 +90,8 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+            <Button title="Read Datastore" onPress={readDatastore} />
           </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
     </SafeAreaView>

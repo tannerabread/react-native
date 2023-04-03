@@ -6,19 +6,19 @@ import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
 
-import {Amplify, DataStore, Predicates} from 'aws-amplify';
+import {Amplify, DataStore} from 'aws-amplify';
 import {Todo} from './models';
+import {SQLiteStorageAdapter} from '@aws-amplify/datastore-storage-adapter/SQLiteAdapter';
 import 'core-js/full/symbol/async-iterator';
 import config from './aws-exports';
 Amplify.configure({
   ...config,
   DataStore: {
+    storageAdapter: SQLiteStorageAdapter,
     authModeStrategyType: 'MULTI_AUTH',
   },
 });
 Amplify.Logger.LOG_LEVEL = 'DEBUG';
-
-// DataStore.delete(Todo, Predicates.ALL);
 
 async function saveDatastoreTodo() {
   try {
@@ -28,6 +28,7 @@ async function saveDatastoreTodo() {
         description: 'cli datastore!',
       }),
     );
+    console.log('post: ', JSON.stringify(post, null, 2));
   } catch (error) {
     console.log(error);
   }
