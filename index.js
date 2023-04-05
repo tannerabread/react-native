@@ -8,16 +8,9 @@ import {name as appName} from './app.json';
 
 import {Amplify, DataStore} from 'aws-amplify';
 import {Todo} from './models';
-import {SQLiteStorageAdapter} from '@aws-amplify/datastore-storage-adapter/SQLiteAdapter';
 import 'core-js/full/symbol/async-iterator';
 import config from './aws-exports';
-Amplify.configure({
-  ...config,
-  DataStore: {
-    storageAdapter: SQLiteStorageAdapter,
-    authModeStrategyType: 'MULTI_AUTH',
-  },
-});
+Amplify.configure(config);
 Amplify.Logger.LOG_LEVEL = 'DEBUG';
 
 async function saveDatastoreTodo() {

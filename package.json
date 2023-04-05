@@ -10,15 +10,13 @@
     "test": "jest"
   },
   "dependencies": {
-    "@aws-amplify/datastore-storage-adapter": "^2.0.23",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-native-community/netinfo": "^9.3.7",
     "amazon-cognito-identity-js": "^6.2.0",
     "aws-amplify": "^5.0.22",
     "core-js": "^3.29.1",
     "react": "18.2.0",
-    "react-native": "0.71.5",
-    "react-native-sqlite-storage": "^6.0.1"
+    "react-native": "0.71.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
